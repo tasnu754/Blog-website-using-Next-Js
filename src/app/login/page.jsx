@@ -3,9 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Register() {
+export default function Login() {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -23,30 +22,11 @@ export default function Register() {
           {/* Logo/Title */}
           <div className="text-center mb-10">
             <h1 className="text-4xl font-bold text-white mb-2">WordWave</h1>
-            <p className="text-purple-200">Create your account</p>
+            <p className="text-purple-200">Login your account</p>
           </div>
 
           {/* Sign Up Form */}
           <form className="space-y-6 ">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-md font-medium text-purple-100 mb-1"
-              >
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                placeholder="John Doe"
-                required
-              />
-            </div>
-
             <div>
               <label
                 htmlFor="email"
@@ -119,12 +99,12 @@ export default function Register() {
           {/* Login Link */}
           <div className="mt-8 text-center">
             <p className="text-purple-200">
-              Already have an account?{" "}
+              Don't have an account?{" "}
               <Link
-                href="/login"
+                href="/register"
                 className="text-white font-medium hover:text-purple-500 transition-colors"
               >
-                Log in
+                SignUp
               </Link>
             </p>
           </div>
