@@ -92,7 +92,7 @@ export default function Login() {
               type="submit"
               className="w-full text-xl py-3 px-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-medium rounded-lg shadow-lg transition-all duration-300 hover:shadow-purple-500/30"
             >
-              Sign Up
+              Login
             </button>
           </form>
 

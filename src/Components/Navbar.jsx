@@ -21,12 +21,10 @@ const Navbar = () => {
   return (
     <div className="py-6 px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center">
-        {/* Logo */}
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold">WordWave</h2>
         </div>
 
-        {/* Desktop Navigation - hidden on mobile */}
         <div className="hidden md:flex flex-1">
           <ul className="flex justify-evenly text-lg sm:text-xl w-full max-w-2xl mx-auto">
             {navLinks.map((link) => (
@@ -51,7 +49,6 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Mobile menu button - visible only on mobile */}
         <button
           className="md:hidden p-2 "
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -60,7 +57,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation - appears when menu button is clicked */}
       {mobileMenuOpen && (
         <div className="md:hidden mt-4">
           <ul className="flex flex-col space-y-4">
