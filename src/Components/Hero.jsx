@@ -27,7 +27,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/"
-                className="border border-pink-600 text-pink-600 hover:bg-pink-600 hover:border-white hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300 text-center"
+                className="border border-pink-600 text-pink-600 hover:bg-pink-600 hover:border-pink-900 hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300 text-center"
               >
                 Get Updates
               </Link>
@@ -41,6 +41,7 @@ export default function Hero() {
                   src="/hero.jpg"
                   alt="Person writing in notebook with laptop on desk"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover overflow-hidden"
                   priority
                 />

@@ -41,6 +41,7 @@ export default function About() {
               src="/Blogging-in-Digital-Marketing.jpg"
               alt="Team working together"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
               priority
             />

@@ -1,20 +1,7 @@
-// app/signup/page.jsx
-"use client";
-import { useState } from "react";
 import Link from "next/link";
+import { authentication } from "@/actions/authentication";
 
 export default function Register() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
       <div className="flex items-center justify-center min-h-screen backdrop-blur-sm">
@@ -24,7 +11,7 @@ export default function Register() {
             <p className="text-purple-200">Create your account</p>
           </div>
 
-          <form className="space-y-6 ">
+          <form className="space-y-6 " action={authentication}>
             <div>
               <label
                 htmlFor="name"
@@ -36,8 +23,6 @@ export default function Register() {
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="John Doe"
                 required
@@ -55,8 +40,6 @@ export default function Register() {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="you@example.com"
                 required
@@ -74,8 +57,6 @@ export default function Register() {
                 type="password"
                 id="password"
                 name="password"
-                value={formData.password}
-                onChange={handleChange}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="••••••••"
                 required

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@font-face {
+/* @font-face {
   font-family: "Mona Sans";
   src: url("/fonts/Mona-Sans-Regular.woff2") format("woff2");
   font-weight: 400;
@@ -14,7 +14,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 body {
   background: #41295a; /* fallback for old browsers */

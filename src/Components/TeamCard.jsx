@@ -6,7 +6,13 @@ export default function TeamCard({ name, role, image, social }) {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative aspect-square">
-        <Image src={image} alt={name} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={name}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-gray-900">{name}</h3>

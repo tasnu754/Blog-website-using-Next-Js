@@ -9,6 +9,7 @@ export default function Post() {
           src="/222.jpg"
           alt="Mars landscape"
           fill
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover rounded-2xl"
           priority
         />
