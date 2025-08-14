@@ -34,12 +34,11 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Featured Image */}
           <div className="md:w-1/2 mt-8 md:mt-0">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02] duration-300">
               <div className="relative h-48 md:h-64 w-full">
                 <Image
-                  src="/hero.jpg" // Replace with your image path
+                  src="/hero.jpg"
                   alt="Person writing in notebook with laptop on desk"
                   fill
                   className="object-cover overflow-hidden"
@@ -47,9 +46,7 @@ export default function Hero() {
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center gap-2 text-md text-pink-600 mb-2 font-bold ">
-                  <h2>Thoughts Worth Sharing</h2>
-                </div>
+                <div className="flex items-center gap-2 text-md text-pink-600 mb-2 font-bold "></div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Ignite Your Curiosity Through Thoughtful Writing
                 </h3>
@@ -62,10 +59,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-50"></div>
-      <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-50"></div>
     </section>
   );
 }
