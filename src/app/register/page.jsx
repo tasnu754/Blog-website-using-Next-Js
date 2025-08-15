@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { authentication } from "@/actions/authentication";
+import { SignUp } from "@/actions/authentication";
 
 export default function Register() {
   return (
@@ -11,7 +11,7 @@ export default function Register() {
             <p className="text-purple-200">Create your account</p>
           </div>
 
-          <form className="space-y-6 " action={authentication}>
+          <form className="space-y-6 " action={SignUp}>
             <div>
               <label
                 htmlFor="name"
