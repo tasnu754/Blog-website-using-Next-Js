@@ -1,32 +1,29 @@
-// app/signup/page.jsx
 "use client";
-import { useState } from "react";
+
+import { login } from "@/actions/authentication";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useActionState } from "react";
 
 export default function Login() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
+  const router = useRouter();
+  const [state, formAction] = useActionState(async (prevState, formData) => {
+    const result = await login(formData);
+    if (result.success) {
+      router.push("/blogs");
+    }
+    return result;
+  }, null);
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
-      {/* Glassmorphism Container */}
       <div className="flex items-center justify-center min-h-screen backdrop-blur-sm">
         <div className="w-full max-w-lg px-8  py-12 mx-4 bg-white/5 border border-white/10 rounded-2xl shadow-2xl backdrop-blur-lg">
-          {/* Logo/Title */}
           <div className="text-center mb-10">
             <h1 className="text-4xl font-bold text-white mb-2">WordWave</h1>
             <p className="text-purple-200">Login your account</p>
           </div>
 
-          {/* Sign Up Form */}
-          <form className="space-y-6 ">
+          <form className="space-y-6 " action={formAction}>
             <div>
               <label
                 htmlFor="email"
@@ -38,8 +35,6 @@ export default function Login() {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="you@example.com"
                 required
@@ -57,8 +52,6 @@ export default function Login() {
                 type="password"
                 id="password"
                 name="password"
-                value={formData.password}
-                onChange={handleChange}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="••••••••"
                 required

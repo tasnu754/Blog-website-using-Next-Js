@@ -1,6 +1,9 @@
 "use server";
 
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import User from "@/models/User";
 import { auth } from "@/firebase";
 import dbConnect from "@/lib/db";
@@ -31,6 +34,18 @@ export async function SignUp(formData) {
     await newUser.save();
     console.log("User saved to mongo ", newUser);
 
+    return { success: true, userId: user.uid };
+  } catch (error) {
+    return { error: error.message };
+  }
+}
+
+export async function login(formData) {
+  try {
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    const { user } = await signInWithEmailAndPassword(auth, email, password);
     return { success: true, userId: user.uid };
   } catch (error) {
     return { error: error.message };

@@ -20,7 +20,7 @@ export default function Post() {
           I would like to die on Mars. Just not on impact.
         </h1>
 
-        <div className="flex items-center text-gray-500 space-x-4 pb-8 border-t  border-gray-200">
+        <div className="flex items-center text-gray-500 space-x-4 pb-8 border-t  border-gray-600">
           <time dateTime="2021-12-26" className="text-md my-2">
             December 26, 2021
           </time>
