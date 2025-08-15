@@ -46,7 +46,13 @@ export async function login(formData) {
     const password = formData.get("password");
 
     const { user } = await signInWithEmailAndPassword(auth, email, password);
-    return { success: true, userId: user.uid };
+    return {
+      success: true,
+      user: {
+        uid: user.uid,
+        email: user.email,
+      },
+    };
   } catch (error) {
     return { error: error.message };
   }

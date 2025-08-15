@@ -1,19 +1,23 @@
 "use client";
 
 import { login } from "@/actions/authentication";
+import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useActionState } from "react";
 
 export default function Login() {
   const router = useRouter();
+  const { setCurrentUser } = useAuth();
   const [state, formAction] = useActionState(async (prevState, formData) => {
     const result = await login(formData);
     if (result.success) {
+      setCurrentUser(result.user);
       router.push("/blogs");
     }
     return result;
   }, null);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
       <div className="flex items-center justify-center min-h-screen backdrop-blur-sm">
