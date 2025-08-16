@@ -1,4 +1,4 @@
-const PostDetails = () => {
+const PostDetails = async () => {
   return <div></div>;
 };
 

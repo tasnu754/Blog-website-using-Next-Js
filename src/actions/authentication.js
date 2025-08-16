@@ -42,15 +42,26 @@ export async function SignUp(formData) {
 
 export async function login(formData) {
   try {
+    await dbConnect();
+
     const email = formData.get("email");
     const password = formData.get("password");
 
     const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+    const dbUser = await User.findOne({ firebaseUid: user.uid });
+
+    if (!dbUser) {
+      throw new Error("User not found in database");
+    }
+
     return {
       success: true,
       user: {
         uid: user.uid,
         email: user.email,
+        name: dbUser.name,
+        role: dbUser.role,
       },
     };
   } catch (error) {

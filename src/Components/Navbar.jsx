@@ -6,17 +6,18 @@ import { Menu, X } from "lucide-react";
 import { auth } from "@/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useAuth } from "@/context/AuthContext";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { currentUser, loading, setCurrentUser } = useAuth();
-  console.log(currentUser, "usserrr");
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
       setCurrentUser(null);
+      Swal.fire("Logged Out!");
     } catch (error) {
       console.log("Logout error:", error);
     }

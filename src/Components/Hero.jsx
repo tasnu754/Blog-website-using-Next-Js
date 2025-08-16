@@ -1,4 +1,3 @@
-// components/Hero.js
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,7 +6,6 @@ export default function Hero() {
     <section className="relative  py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-8">
-          {/* Text Content */}
           <div className="md:w-1/2 space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Discover & Share{" "}
