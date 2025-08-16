@@ -7,7 +7,6 @@ import { useEffect } from "react";
 export default function PrivateRoute({ children, requiredRole }) {
   const { currentUser } = useAuth();
   const router = useRouter();
-  console.log(currentUser, "Privatett");
 
   useEffect(() => {
     if (!currentUser) {

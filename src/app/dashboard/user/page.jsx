@@ -1,10 +1,10 @@
 import PrivateRoute from "@/Components/PrivateRoute";
-import React from "react";
+import Sidebar from "@/Components/UserDashboard/Sidebar";
 
 const UserDashboard = () => {
   return (
     <PrivateRoute requiredRole="user">
-      <div>Userrr Dashhh</div>
+      <div>ddirghjidsh</div>
     </PrivateRoute>
   );
 };

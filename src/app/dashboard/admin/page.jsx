@@ -1,9 +1,10 @@
 import PrivateRoute from "@/Components/PrivateRoute";
+import Sidebar from "@/Components/UserDashboard/Sidebar";
 
 const AdminDashboard = () => {
   return (
     <PrivateRoute requiredRole="admin">
-      <div>Admin Dashhh</div>
+      <div>aiiehfwi</div>
     </PrivateRoute>
   );
 };

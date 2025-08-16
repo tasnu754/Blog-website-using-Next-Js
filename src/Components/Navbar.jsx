@@ -4,19 +4,22 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { auth } from "@/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { useAuth } from "@/context/AuthContext";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { currentUser, loading, setCurrentUser } = useAuth();
+  const router = useRouter();
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
       setCurrentUser(null);
+      router.push("/login");
       Swal.fire("Logged Out!");
     } catch (error) {
       console.log("Logout error:", error);
@@ -27,8 +30,8 @@ const Navbar = () => {
 
   const commonLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
     { href: "/blogs", label: "Blogs" },
+    { href: "/about", label: "About" },
   ];
 
   const authLinks = [
