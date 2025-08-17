@@ -4,16 +4,18 @@ import { login } from "@/actions/authentication";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useActionState, useEffect } from "react";
+import { useActionState, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 export default function Login() {
   const router = useRouter();
   const { currentUser, setCurrentUser } = useAuth();
+
   const [state, formAction] = useActionState(async (prevState, formData) => {
     const result = await login(formData);
     if (result.success) {
       setCurrentUser(result.user);
+
       return result;
     }
     return result;
