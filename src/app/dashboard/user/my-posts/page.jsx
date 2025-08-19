@@ -139,7 +139,7 @@ const UserPosts = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex space-x-2">
                       <Link
-                        href={`/posts/${post._id}`}
+                        href={`/post-Details/${post._id}`}
                         className="text-blue-600 hover:text-blue-900 p-1 text-xl"
                         title="View"
                       >
