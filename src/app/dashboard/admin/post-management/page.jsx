@@ -1,23 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useAuth } from "@/context/AuthContext";
 import { FiEdit, FiTrash2, FiEye } from "react-icons/fi";
 import Link from "next/link";
 import Swal from "sweetalert2";
 
-const UserPosts = () => {
-  const { currentUser } = useAuth();
+const PostManagement = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   useEffect(() => {
     const fetchUserPosts = async () => {
       try {
-        if (!currentUser?.uid) return;
-
         setLoading(true);
-        const response = await fetch(`/api/posts?author=${currentUser.uid}`);
+        const response = await fetch(`/api/posts`);
 
         if (!response.ok) {
           throw new Error("Failed to fetch posts");
@@ -33,7 +29,7 @@ const UserPosts = () => {
     };
 
     fetchUserPosts();
-  }, [currentUser]);
+  }, []);
 
   const handleDelete = async (postId) => {
     try {
@@ -139,7 +135,7 @@ const UserPosts = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex space-x-2">
                       <Link
-                        href={`/posts/${post._id}`}
+                        href={`/post-Details/${post._id}`}
                         className="text-blue-600 hover:text-blue-900 p-1 text-xl"
                         title="View"
                       >
@@ -171,4 +167,4 @@ const UserPosts = () => {
   );
 };
 
-export default UserPosts;
+export default PostManagement;

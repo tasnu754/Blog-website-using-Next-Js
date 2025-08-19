@@ -1,5 +1,4 @@
 import PrivateRoute from "@/Components/PrivateRoute";
-import Sidebar from "@/Components/UserDashboard/Sidebar";
 
 const UserDashboard = () => {
   return (

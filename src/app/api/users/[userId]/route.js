@@ -2,7 +2,6 @@ import dbConnect from "@/lib/db";
 import User from "@/models/User";
 
 export async function GET(request, { params }) {
-  console.log(request);
   try {
     const { userId } = await params;
     console.log("Fetching user with ID:", userId);
@@ -42,5 +41,41 @@ export async function PUT(request, { params }) {
     return Response.json(updatedUser);
   } catch (error) {
     return Response.json({ error: "Update failed" }, { status: 500 });
+  }
+}
+
+export async function DELETE(request, { params }) {
+  try {
+    const { userId } = params;
+    await dbConnect();
+
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    if (!deletedUser) {
+      return Response.json(
+        {
+          success: false,
+          error: "User not found",
+        },
+        { status: 404 }
+      );
+    }
+
+    return Response.json(
+      {
+        success: true,
+        message: "User deleted successfully",
+        deletedId: userId,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        error: error.message,
+      },
+      { status: 500 }
+    );
   }
 }

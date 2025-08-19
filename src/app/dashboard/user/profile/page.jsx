@@ -25,7 +25,7 @@ const UserProfile = () => {
         if (!currentUser?.uid) {
           throw new Error("No user logged in");
         }
-
+        console.log(currentUser);
         const response = await fetch(`/api/users/${currentUser.uid}`);
         if (!response.ok) {
           throw new Error("Failed to fetch user data");
